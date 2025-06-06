@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Michael Obudho Juma</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        .navbar-brand:hover {
+            color: #0056b3;
+        }
+
+        .navbar-nav .nav-link {
+            color: #343a40;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #007bff;
+            font-weight: 500;
+        }
+
+        /* Page Header Styles */
+        .page-header {
+            background-color: #e9ecef;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #6c757d;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-item a {
+            color: #007bff;
+        }
+
+        .breadcrumb-item.active {
+            color: #6c757d;
+        }
+
+        /* Section Styles */
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* About Section Styles */
+        .about-section {
+            background-color: #ffffff;
+        }
+
+        /* Skill Card Styles */
+        .skill-card {
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            border: 1px solid #ddd;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .skill-title {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Progress Bar Styles */
+        .progress {
+            height: 10px;
+            border-radius: 0.5rem;
+        }
+
+        /* Badge Styles */
+        .badge {
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.6rem;
+            border-radius: 0.25rem;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Utility Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Michael Juma</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="skills.html">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Skills</li>
+                </ol>
+            </nav>
+            <h1 class="page-title">Technical Skills</h1>
+            <p class="page-subtitle">Explore my expertise in modern web development technologies and frameworks</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+<section class="section-padding">
+    <div class="container">
+        <!-- Programming Languages -->
+        <div class="mb-5">
+            <h3 class="text-center mb-4 fade-in">Programming Languages</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="bi bi-filetype-html" style="color: #e34c26;"></i>
+                        </div>
+                        <h4 class="skill-title">HTML5</h4>
+                        <p>Semantic markup, accessibility, and modern HTML5 features for building structured web content.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-danger me-2">HTML5</span>
+                            <span class="badge bg-danger me-2">Semantic</span>
+                            <span class="badge bg-danger">Accessibility</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="bi bi-filetype-js" style="color: #f7df1e;"></i>
+                        </div>
+                        <h4 class="skill-title">JavaScript</h4>
+                        <p>Modern ES6+ JavaScript, DOM manipulation, async programming, and interactive web applications.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-warning me-2">ES6+</span>
+                            <span class="badge bg-warning me-2">DOM</span>
+                            <span class="badge bg-warning">Async/Await</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Frontend Frameworks -->
+        <div class="mb-5">
+            <h3 class="text-center mb-4 fade-in">Frontend Frameworks & Libraries</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="bi bi-bootstrap" style="color: #7952b3;"></i>
+                        </div>
+                        <h4 class="skill-title">Bootstrap</h4>
+                        <p>Responsive design framework for building mobile-first, professional websites with pre-built components.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Bootstrap 5</span>
+                            <span class="badge bg-primary me-2">Responsive</span>
+                            <span class="badge bg-primary">Components</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="bi bi-code-slash" style="color: #61dafb;"></i>
+                        </div>
+                        <h4 class="skill-title">React</h4>
+                        <p>Component-based library for building dynamic user interfaces with hooks, state management, and modern patterns.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-info me-2">React 18</span>
+                            <span class="badge bg-info me-2">Hooks</span>
+                            <span class="badge bg-info">Components</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backend & Database -->
+        <div class="mb-5">
+            <h3 class="text-center mb-4 fade-in">Backend & Database</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="bi bi-database" style="color: #336791;"></i>
+                        </div>
+                        <h4 class="skill-title">SQL</h4>
+                        <p>Database design, complex queries, joins, and data manipulation for efficient data management.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Queries</span>
+                            <span class="badge bg-primary me-2">Joins</span>
+                            <span class="badge bg-primary">Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="bi bi-server" style="color: #306998;"></i>
+                        </div>
+                        <h4 class="skill-title">SQLAlchemy</h4>
+                        <p>Python ORM for database operations, relationships, and building robust backend applications.</p>
+                        <div class="progress mb-3">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="badge bg-success me-2">ORM</span>
+                            <span class="badge bg-success me-2">Models</span>
+                            <span class="badge bg-success">Relationships</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Tools Section -->
+    <section class="about-section section-padding">
+        <div class="container">
+            <h2 class="section-title fade-in">Development Tools</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center fade-in">
+                        <p class="lead mb-4">I work with modern development tools and environments to ensure efficient and productive development workflows.</p>
+                        <div class="row g-3">
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 bg-white rounded shadow-sm">
+                                    <i class="bi bi-code-square text-primary mb-2" style="font-size: 2rem;"></i>
+                                    <h6>VS Code</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 bg-white rounded shadow-sm">
+                                    <i class="bi bi-terminal text-primary mb-2" style="font-size: 2rem;"></i>
+                                    <h6>Terminal</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 bg-white rounded shadow-sm">
+                                    <i class="bi bi-browser-chrome text-primary mb-2" style="font-size: 2rem;"></i>
+                                    <h6>DevTools</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 bg-white rounded shadow-sm">
+                                    <i class="bi bi-cloud text-primary mb-2" style="font-size: 2rem;"></i>
+                                    <h6>Cloud Services</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-2">&copy; 2025 Michael Obudho Juma. All rights reserved.</p>
+                    <p class="mb-0">Built with HTML, JavaScript & Bootstrap</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <!-- <script src="script.js"></script> -->
+    <script>
+        // Function to handle the active link in the navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Remove active class from all links
+                    navLinks.forEach(link => link.classList.remove('active'));
+
+                    // Add active class to the clicked link
+                    this.classList.add('active');
+                });
+            });
+
+            // Optional: Add active class to the current page's link on load
+            const currentPage = window.location.pathname.split('/').pop(); // Get the current page filename
+            navLinks.forEach(link => {
+                const linkPage = link.href.split('/').pop();
+                if (linkPage === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

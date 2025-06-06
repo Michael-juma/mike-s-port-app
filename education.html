@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Michael Obudho Juma</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+/* Base Styles */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --max-width: 1200px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background: var(--light-color);
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 0.75rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: darken(var(--primary-color), 10%);
+  text-decoration: none;
+}
+
+/* Layout & Components */
+.container {
+  max-width: var(--max-width);
+  padding: 0 1rem;
+}
+
+.navbar {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--dark-color);
+}
+
+.navbar-brand:hover {
+  color: var(--primary-color);
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: var(--dark-color);
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--primary-color);
+}
+
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, lighten(var(--primary-color), 20%) 100%);
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumb-item.active {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.section-padding {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.about-section {
+  background: #f8f9fa;
+}
+
+.about-img {
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.skills-bar {
+  background: #ddd;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.skills-bar-fill {
+  background-color: var(--primary-color);
+  height: 10px;
+  border-radius: 5px;
+  display: block;
+}
+
+.project-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 1.5rem;
+  background: white;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-category {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--primary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: darken(var(--primary-color), 10%);
+  border-color: darken(var(--primary-color), 10%);
+}
+
+.footer {
+  background: var(--dark-color);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.footer a {
+  color: white;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  .page-header {
+    padding: 3rem 0;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Include all the base styles, plus: */
+
+.education-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--primary-color);
+  margin-bottom: 2rem;
+}
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Michael Juma</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Education</li>
+                </ol>
+            </nav>
+            <h1 class="page-title">Education & Learning</h1>
+            <p class="page-subtitle">My educational journey and continuous learning in software development</p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="education-card fade-in">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-mortarboard-fill text-primary me-3" style="font-size: 2rem;"></i>
+                            <div>
+                                <h4 class="mb-1">Certificate in Software Engineering</h4>
+                                <p class="text-muted mb-0">Moringa School • 2025</p>
+                            </div>
+                        </div>
+                        <p class="mb-2">
+                            <i class="bi bi-geo-alt text-primary me-2"></i>
+                            Ngong Road, Nairobi, Kenya
+                        </p>
+                        <p class="mb-3">
+                            Completed a comprehensive one-year certificate program covering full-stack web development, 
+                            software engineering principles, and modern development practices.
+                        </p>
+                        <h6 class="mb-2">Key Areas of Study:</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><i class="bi bi-check-circle text-success me-2"></i>Full-Stack Web Development</li>
+                            <li class="mb-1"><i class="bi bi-check-circle text-success me-2"></i>Frontend Technologies (React, JavaScript, HTML, CSS)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle text-success me-2"></i>Backend Development (Python, SQLAlchemy)</li>
+                            <li class="mb-1"><i class="bi bi-check-circle text-success me-2"></i>Database Design and Management</li>
+                            <li class="mb-1"><i class="bi bi-check-circle text-success me-2"></i>Software Engineering Best Practices</li>
+                            <li class="mb-1"><i class="bi bi-check-circle text-success me-2"></i>Version Control with Git</li>
+                            <li class="mb-1"><i class="bi bi-check-circle text-success me-2"></i>Agile Development Methodologies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Philosophy -->
+    <section class="about-section section-padding">
+        <div class="container">
+            <h2 class="section-title fade-in">Learning Philosophy</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center fade-in">
+                        <p class="lead mb-4">
+                            I believe in continuous learning and staying updated with the latest technologies 
+                            and industry best practices. The tech industry evolves rapidly, and I'm committed 
+                            to growing alongside it.
+                        </p>
+                        <div class="row g-4 mt-4">
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="bi bi-book text-primary mb-3" style="font-size: 3rem;"></i>
+                                    <h5>Continuous Learning</h5>
+                                    <p>Always exploring new technologies and frameworks to stay current with industry trends.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="bi bi-laptop text-primary mb-3" style="font-size: 3rem;"></i>
+                                    <h5>Hands-on Practice</h5>
+                                    <p>Learning through building real projects and applying theoretical knowledge practically.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="bi bi-people text-primary mb-3" style="font-size: 3rem;"></i>
+                                    <h5>Community Engagement</h5>
+                                    <p>Participating in developer communities and sharing knowledge with fellow developers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Achievements -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title fade-in">Achievements & Goals</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="education-card fade-in">
+                        <h5 class="mb-3">
+                            <i class="bi bi-trophy text-warning me-2"></i>
+                            Current Achievements
+                        </h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Completed Software Engineering Certificate at Moringa School
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Proficient in Full-Stack Web Development
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Built multiple web applications using modern technologies
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Active GitHub contributor with clean, documented code
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="education-card fade-in">
+                        <h5 class="mb-3">
+                            <i class="bi bi-target text-primary me-2"></i>
+                            Future Goals
+                        </h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="bi bi-arrow-right text-primary me-2"></i>
+                                Expand expertise in cloud technologies and DevOps
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-arrow-right text-primary me-2"></i>
+                                Contribute to open-source projects
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-arrow-right text-primary me-2"></i>
+                                Pursue advanced certifications in modern frameworks
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-arrow-right text-primary me-2"></i>
+                                Mentor upcoming developers in the community
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="mb-2">&copy; 2025 Michael Obudho Juma. All rights reserved.</p>
+                    <p class="mb-0">Built with HTML, JavaScript & Bootstrap</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <!-- <script src="script.js"></script> -->
+    <script>
+        // Custom JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in class to elements with the class 'fade-in'
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach(element => {
+                element.classList.add('fade-in');
+            });
+
+            // Navbar auto-hide on scroll (optional)
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('.navbar');
+
+            window.addEventListener('scroll', function() {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down
+                    navbar.style.top = '-80px'; // Hide the navbar
+                } else {
+                    // Scrolling up
+                    navbar.style.top = '0'; // Show the navbar
+                }
+                lastScrollTop = scrollTop;
+            });
+        });
+    </script>
+</body>
+</html>

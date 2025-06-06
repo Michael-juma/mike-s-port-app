@@ -161,6 +161,184 @@
   font-size: 0.8rem;
   color: var(--text-light);
 }
+
+.project-preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-image:hover .project-preview-overlay {
+  opacity: 1;
+}
+
+.preview-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.preview-buttons .btn {
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.preview-buttons .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Enhanced project card hover effects */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+/* Code viewer modal styles */
+.code-viewer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.code-viewer-content {
+  background: #1e1e1e;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1000px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.code-viewer-header {
+  background: #2d2d2d;
+  padding: 1rem;
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.code-viewer-title {
+  color: white;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.code-viewer-close {
+  background: #ff5f56;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.code-viewer-body {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.code-viewer-body pre {
+  color: #f8f8f2;
+  background: transparent;
+  border: none;
+  margin: 0;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Preview modal styles */
+.preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.preview-content {
+  background: white;
+  border-radius: 10px;
+  width: 95%;
+  max-width: 1200px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.preview-header {
+  background: #f8f9fa;
+  padding: 1rem;
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.preview-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.preview-close {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.preview-iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+}
 </style>
 </head>
 <body>
@@ -226,6 +404,16 @@
                     <div class="project-card html-project fade-in">
                         <div class="project-image">
                             <i class="bi bi-globe"></i>
+                            <div class="project-preview-overlay">
+                                <div class="preview-buttons">
+                                    <button class="btn btn-light btn-sm me-2" onclick="openPreview('portfolio')">
+                                        <i class="bi bi-eye me-1"></i>Preview
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm" onclick="viewCode('portfolio')">
+                                        <i class="bi bi-code me-1"></i>Code
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="project-content">
                             <h4 class="project-title">Portfolio Website</h4>
@@ -254,10 +442,10 @@
                                 </div>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="project-btn btn-demo">
+                                <a href="https://michael-juma-portfolio.netlify.app" target="_blank" class="project-btn btn-demo">
                                     <i class="bi bi-eye me-1"></i>Live Demo
                                 </a>
-                                <a href="#" class="project-btn btn-code">
+                                <a href="https://github.com/Michael-juma/portfolio" target="_blank" class="project-btn btn-code">
                                     <i class="bi bi-github me-1"></i>View Code
                                 </a>
                             </div>
@@ -269,6 +457,16 @@
                     <div class="project-card html-project fade-in">
                         <div class="project-image">
                             <i class="bi bi-calculator"></i>
+                            <div class="project-preview-overlay">
+                                <div class="preview-buttons">
+                                    <button class="btn btn-light btn-sm me-2" onclick="openPreview('calculator')">
+                                        <i class="bi bi-eye me-1"></i>Preview
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm" onclick="viewCode('calculator')">
+                                        <i class="bi bi-code me-1"></i>Code
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="project-content">
                             <h4 class="project-title">Interactive Calculator</h4>
@@ -297,10 +495,10 @@
                                 </div>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="project-btn btn-demo">
+                                <a href="https://michael-calculator-app.netlify.app" target="_blank" class="project-btn btn-demo">
                                     <i class="bi bi-eye me-1"></i>Live Demo
                                 </a>
-                                <a href="#" class="project-btn btn-code">
+                                <a href="https://github.com/Michael-juma/calculator-app" target="_blank" class="project-btn btn-code">
                                     <i class="bi bi-github me-1"></i>View Code
                                 </a>
                             </div>
@@ -327,6 +525,16 @@
                     <div class="project-card react-project fade-in">
                         <div class="project-image">
                             <i class="bi bi-list-task"></i>
+                            <div class="project-preview-overlay">
+                                <div class="preview-buttons">
+                                    <button class="btn btn-light btn-sm me-2" onclick="openPreview('taskmanager')">
+                                        <i class="bi bi-eye me-1"></i>Preview
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm" onclick="viewCode('taskmanager')">
+                                        <i class="bi bi-code me-1"></i>Code
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="project-content">
                             <h4 class="project-title">Task Management App</h4>
@@ -351,10 +559,10 @@
                                 </div>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="project-btn btn-demo">
+                                <a href="https://michael-task-manager.netlify.app" target="_blank" class="project-btn btn-demo">
                                     <i class="bi bi-eye me-1"></i>Demo
                                 </a>
-                                <a href="#" class="project-btn btn-code">
+                                <a href="https://github.com/Michael-juma/task-manager-react" target="_blank" class="project-btn btn-code">
                                     <i class="bi bi-github me-1"></i>Code
                                 </a>
                             </div>
@@ -366,6 +574,16 @@
                     <div class="project-card react-project fade-in">
                         <div class="project-image">
                             <i class="bi bi-cloud-sun"></i>
+                            <div class="project-preview-overlay">
+                                <div class="preview-buttons">
+                                    <button class="btn btn-light btn-sm me-2" onclick="openPreview('weather')">
+                                        <i class="bi bi-eye me-1"></i>Preview
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm" onclick="viewCode('weather')">
+                                        <i class="bi bi-code me-1"></i>Code
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="project-content">
                             <h4 class="project-title">Weather Dashboard</h4>
@@ -390,10 +608,10 @@
                                 </div>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="project-btn btn-demo">
+                                <a href="https://michael-weather-dashboard.netlify.app" target="_blank" class="project-btn btn-demo">
                                     <i class="bi bi-eye me-1"></i>Demo
                                 </a>
-                                <a href="#" class="project-btn btn-code">
+                                <a href="https://github.com/Michael-juma/weather-dashboard-react" target="_blank" class="project-btn btn-code">
                                     <i class="bi bi-github me-1"></i>Code
                                 </a>
                             </div>
@@ -405,6 +623,16 @@
                     <div class="project-card react-project fade-in">
                         <div class="project-image">
                             <i class="bi bi-cart"></i>
+                            <div class="project-preview-overlay">
+                                <div class="preview-buttons">
+                                    <button class="btn btn-light btn-sm me-2" onclick="openPreview('ecommerce')">
+                                        <i class="bi bi-eye me-1"></i>Preview
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm" onclick="viewCode('ecommerce')">
+                                        <i class="bi bi-code me-1"></i>Code
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="project-content">
                             <h4 class="project-title">E-Commerce Store</h4>
@@ -429,10 +657,10 @@
                                 </div>
                             </div>
                             <div class="project-links">
-                                <a href="#" class="project-btn btn-demo">
+                                <a href="https://michael-ecommerce-store.netlify.app" target="_blank" class="project-btn btn-demo">
                                     <i class="bi bi-eye me-1"></i>Demo
                                 </a>
-                                <a href="#" class="project-btn btn-code">
+                                <a href="https://github.com/Michael-juma/ecommerce-react" target="_blank" class="project-btn btn-code">
                                     <i class="bi bi-github me-1"></i>Code
                                 </a>
                             </div>
@@ -495,5 +723,172 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
+
+    <script>
+// Project preview and code viewing functionality
+const projectData = {
+  portfolio: {
+    name: 'Portfolio Website',
+    url: 'https://michael-juma-portfolio.netlify.app',
+    github: 'https://github.com/Michael-juma/portfolio',
+    description: 'Personal portfolio showcasing skills and projects'
+  },
+  calculator: {
+    name: 'Interactive Calculator',
+    url: 'https://michael-calculator-app.netlify.app',
+    github: 'https://github.com/Michael-juma/calculator-app',
+    description: 'Advanced calculator with mathematical operations'
+  },
+  taskmanager: {
+    name: 'Task Management App',
+    url: 'https://michael-task-manager.netlify.app',
+    github: 'https://github.com/Michael-juma/task-manager-react',
+    description: 'React-based task management with CRUD operations'
+  },
+  weather: {
+    name: 'Weather Dashboard',
+    url: 'https://michael-weather-dashboard.netlify.app',
+    github: 'https://github.com/Michael-juma/weather-dashboard-react',
+    description: 'Real-time weather app with 5-day forecast'
+  },
+  ecommerce: {
+    name: 'E-Commerce Store',
+    url: 'https://michael-ecommerce-store.netlify.app',
+    github: 'https://github.com/Michael-juma/ecommerce-react',
+    description: 'Full-featured e-commerce application'
+  }
+};
+
+// Open project preview in modal
+function openPreview(projectKey) {
+  const project = projectData[projectKey];
+  if (!project) return;
+
+  // Create modal HTML
+  const modalHTML = `
+    <div class="preview-modal" id="previewModal">
+      <div class="preview-content">
+        <div class="preview-header">
+          <h3 class="preview-title">${project.name} - Live Preview</h3>
+          <button class="preview-close" onclick="closePreview()">
+            <i class="bi bi-x-lg"></i> Close
+          </button>
+        </div>
+        <iframe class="preview-iframe" src="${project.url}" title="${project.name} Preview"></iframe>
+      </div>
+    </div>
+  `;
+
+  // Add modal to body
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  
+  // Show modal
+  const modal = document.getElementById('previewModal');
+  modal.style.display = 'flex';
+  
+  // Add escape key listener
+  document.addEventListener('keydown', handleEscapeKey);
+}
+
+// Close preview modal
+function closePreview() {
+  const modal = document.getElementById('previewModal');
+  if (modal) {
+    modal.remove();
+  }
+  document.removeEventListener('keydown', handleEscapeKey);
+}
+
+// View project code
+function viewCode(projectKey) {
+  const project = projectData[projectKey];
+  if (!project) return;
+
+  // Open GitHub repository in new tab
+  window.open(project.github, '_blank');
+  
+  // Optional: Show code viewer modal with README or main files
+  showCodeViewer(project);
+}
+
+// Show code viewer modal
+function showCodeViewer(project) {
+  const modalHTML = `
+    <div class="code-viewer-modal" id="codeViewerModal">
+      <div class="code-viewer-content">
+        <div class="code-viewer-header">
+          <h3 class="code-viewer-title">${project.name} - Source Code</h3>
+          <button class="code-viewer-close" onclick="closeCodeViewer()"></button>
+        </div>
+        <div class="code-viewer-body">
+          <div class="text-center text-light p-4">
+            <i class="bi bi-github" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <h4>View Full Source Code</h4>
+            <p class="mb-3">${project.description}</p>
+            <a href="${project.github}" target="_blank" class="btn btn-primary">
+              <i class="bi bi-github me-2"></i>Open Repository
+            </a>
+            <div class="mt-4">
+              <small class="text-muted">
+                Repository includes: README.md, source code, documentation, and setup instructions
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  
+  const modal = document.getElementById('codeViewerModal');
+  modal.style.display = 'flex';
+  
+  document.addEventListener('keydown', handleEscapeKey);
+}
+
+// Close code viewer modal
+function closeCodeViewer() {
+  const modal = document.getElementById('codeViewerModal');
+  if (modal) {
+    modal.remove();
+  }
+  document.removeEventListener('keydown', handleEscapeKey);
+}
+
+// Handle escape key to close modals
+function handleEscapeKey(event) {
+  if (event.key === 'Escape') {
+    closePreview();
+    closeCodeViewer();
+  }
+}
+
+// Close modal when clicking outside content
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('preview-modal')) {
+    closePreview();
+  }
+  if (event.target.classList.contains('code-viewer-modal')) {
+    closeCodeViewer();
+  }
+});
+
+// Enhanced project card animations
+document.addEventListener('DOMContentLoaded', function() {
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  projectCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-15px) scale(1.02)';
+      this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+});
+</script>
 </body>
 </html>
